@@ -16,6 +16,7 @@
 5. [Add Event (Custom DrawObjects)](/IndoorTutorialProject/IndoorTutorialProject/View/Event)
 6. [Map Animation](/IndoorTutorialProject/IndoorTutorialProject/View/Animation)
 7. [Preview](/IndoorTutorialProject/IndoorTutorialProject/View/Navigation)
+8. [Init VPSView](/IndoorTutorialProject/IndoorTutorialProject/View/VPS)
 
 
 

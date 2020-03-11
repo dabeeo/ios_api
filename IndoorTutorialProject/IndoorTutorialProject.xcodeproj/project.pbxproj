@@ -26,6 +26,8 @@
 		DC9F33E5240D03AF00546CAF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9F33E4240D03AF00546CAF /* HomeViewModel.swift */; };
 		DC9F33EA240D2FC500546CAF /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9F33E9240D2FC500546CAF /* MenuTableViewCell.swift */; };
 		DC9F33F1240DE6AB00546CAF /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9F33F0240DE6AB00546CAF /* Authorization.swift */; };
+		DCDFF0D32418D6A8002E8D82 /* VPSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDFF0D12418D6A8002E8D82 /* VPSViewController.swift */; };
+		DCDFF0D42418D6A8002E8D82 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DCDFF0D22418D6A8002E8D82 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -63,6 +65,8 @@
 		DC9F33E4240D03AF00546CAF /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		DC9F33E9240D2FC500546CAF /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		DC9F33F0240DE6AB00546CAF /* Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
+		DCDFF0D12418D6A8002E8D82 /* VPSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPSViewController.swift; sourceTree = "<group>"; };
+		DCDFF0D22418D6A8002E8D82 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +167,7 @@
 				DC6E995D240E43B8006DE8BB /* Event */,
 				DC6E9960240EACF7006DE8BB /* Animation */,
 				DC6E9965240EAD41006DE8BB /* Navigation */,
+				DCDFF0D02418D6A8002E8D82 /* VPS */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -189,6 +194,15 @@
 				DC6E9953240E22BD006DE8BB /* MapViewController.swift */,
 			);
 			path = Basic;
+			sourceTree = "<group>";
+		};
+		DCDFF0D02418D6A8002E8D82 /* VPS */ = {
+			isa = PBXGroup;
+			children = (
+				DCDFF0D12418D6A8002E8D82 /* VPSViewController.swift */,
+				DCDFF0D22418D6A8002E8D82 /* README.md */,
+			);
+			path = VPS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +266,7 @@
 			files = (
 				DC9F33CD240CDC0A00546CAF /* LaunchScreen.storyboard in Resources */,
 				DC9F33CA240CDC0A00546CAF /* Assets.xcassets in Resources */,
+				DCDFF0D42418D6A8002E8D82 /* README.md in Resources */,
 				DC9F33C8240CDC0700546CAF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,6 +281,7 @@
 				DC9F33E2240D011100546CAF /* Menu.swift in Sources */,
 				DC9F33C1240CDC0700546CAF /* AppDelegate.swift in Sources */,
 				DC9F33EA240D2FC500546CAF /* MenuTableViewCell.swift in Sources */,
+				DCDFF0D32418D6A8002E8D82 /* VPSViewController.swift in Sources */,
 				DC9F33D6240CFC5500546CAF /* HomeViewController.swift in Sources */,
 				DC6E9962240EAD1A006DE8BB /* DrawObjectsEventViewController.swift in Sources */,
 				DC6E995C240E4393006DE8BB /* UIComponentViewController.swift in Sources */,

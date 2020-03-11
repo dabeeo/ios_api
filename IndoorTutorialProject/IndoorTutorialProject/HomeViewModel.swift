@@ -27,6 +27,7 @@ class HomeViewModel: NSObject {
         arrMenu.append(Menu(menuClassName: "DrawObjectsEventViewController", title: "5. Add Event (Custom DrawObjects)"))
         arrMenu.append(Menu(menuClassName: "MapAnimationViewController", title: "6. Map Animation"))
         arrMenu.append(Menu(menuClassName: "PreviewViewController", title: "7. Preview"))
+        arrMenu.append(Menu(menuClassName: "VPSViewController", title: "8. VPS + MapView"))
         
         
     }
