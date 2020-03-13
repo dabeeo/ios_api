@@ -1,7 +1,18 @@
 ## Init VPSView
 
-Dabeeo VPS(Vision Positioning System) 기능을 사용할 수 있는 AR, 지도뷰를 나타낸 뷰 컨트롤러 입니다.
+Dabeeo VPS(Vision Positioning System) 기능을 사용할 수 있는 AR, 지도뷰를 나타낸 뷰 컨트롤러 입니다.  
 
+
+## 측위
+
+VPSView를 사용하기 위해서는 **수집 프로세스**가 필요합니다.  
+아래의 Sample Code는 **수집 프로세스**를 진행한 후에 정상작동이 되는 점 참고하시기 바랍니다.
+
+* 자세한 사항은 [Dabeeo](https://www.dabeeo.com/ko/contact/)에 문의 부탁드립니다.
+
+## ARKit
+Dabeeo VPS는 Apple ARKit Framework를 이용합니다.  
+ * 지원버전 및 기타사항은 [ARKit 가이드](https://developer.apple.com/documentation/arkit?language=objc)를 참고해주시기 바랍니다.  
 
 
 ## Sample Code
