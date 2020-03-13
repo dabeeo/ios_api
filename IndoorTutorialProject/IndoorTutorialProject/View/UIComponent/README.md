@@ -1,9 +1,9 @@
 ## Add UIComponent
 
 Custom UIComponent를 추가/제거,
-
 UIComponent 객체 간의 충돌시 UIComponent show/hide 기능을 확인할 수 있는 뷰 컨트롤러 입니다.
 
+<img src="sample_uiComponent.gif" width="236.5" height="500" />
 
 
 ## Sample Code
