@@ -2,6 +2,9 @@
 
 에디터에서 작업한 POI, Custom DrawObjects 객체에 Event를 추가하는 뷰 컨트롤러 입니다.
 
+| PoiEventViewController | DrawObjectsEventController |
+| :---: | :---: |
+| <img src="sample_event_poi.gif" width="236.5" height="500" /> | <img src="sample_event_customObjects.gif" width="236.5" height="500" /> |
 
 
 ## Sample Code

@@ -2,7 +2,7 @@
 
 에디터에서 작업한 지도를 로드하는 뷰 컨트롤러 입니다.
 
-
+<img src="sample_init_mapview.gif" width="236.5" height="500" />
 
 
 

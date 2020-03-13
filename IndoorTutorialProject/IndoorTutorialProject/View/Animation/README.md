@@ -2,6 +2,7 @@
 
 SDK API 통해 지도 애니메이션을 사용하는 뷰 컨트롤러 입니다.
 
+<img src="sample_map_animation.gif" width="236.5" height="500" />
 
 
 ## Sample Code

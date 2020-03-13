@@ -2,6 +2,7 @@
 
  MapView에 DrawObjects를 추가하는 뷰 컨트롤러 입니다.  
 
+<img src="sample_add_drawObjects.gif" width="236.5" height="500" />
 
 
 ## Sample Code 
