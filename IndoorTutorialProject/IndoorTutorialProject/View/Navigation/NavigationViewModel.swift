@@ -54,6 +54,7 @@ class NavigationViewModel: NSObject {
         self.navigation = DMNavigation.init(map: mapView,
                                             origin: self.startLocation,
                                             destination: self.endLocation,
+                                            wayLocations: nil,
                                             options: naviOptions)
         self.drawPath(mapView: mapView)
         

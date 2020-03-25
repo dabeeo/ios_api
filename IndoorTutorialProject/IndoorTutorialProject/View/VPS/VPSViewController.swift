@@ -32,7 +32,7 @@ class VPSViewController: UIViewController {
         let authorization: DMAuthorization = Authorization.getAuthInfo()
         
         // VPS 및 지도 뷰 옵션 생성
-        let vpsOptions: VPSOptions = VPSOptions.init()
+        let vpsOptions: DMVPSOptions = DMVPSOptions.init()
         let mapOptions: DMMapOptions = DMMapOptions.init()
         
         vpsOptions.timeInterval = 1.0                           // 위치정보 전달 주기
@@ -104,4 +104,7 @@ extension VPSViewController: VPSEventDelegate {
     
     // 현재 VPSTrackingState 전달 (상태가 변경될 때만 발생)
     func onState(_ tracking: VPS_Tracking_State) { }
+    
+    func onMoving(_ moving: VPS_Moving_State) { }
+    
 }
