@@ -33,7 +33,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HSH-Od-vne">
-                                <rect key="frame" x="0.0" y="108" width="414" height="754"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuCell" rowHeight="70" id="c4P-po-i6S" customClass="MenuTableViewCell" customModule="IndoorSDK_Tutorial" customModuleProvider="target">
@@ -76,7 +76,7 @@
                         <constraints>
                             <constraint firstItem="HyG-pi-Lmq" firstAttribute="trailing" secondItem="HSH-Od-vne" secondAttribute="trailing" id="0cU-JF-qnj"/>
                             <constraint firstItem="HSH-Od-vne" firstAttribute="leading" secondItem="HyG-pi-Lmq" secondAttribute="leading" id="0fs-5C-bke"/>
-                            <constraint firstItem="HSH-Od-vne" firstAttribute="top" secondItem="HyG-pi-Lmq" secondAttribute="top" constant="20" id="1gj-3S-De6"/>
+                            <constraint firstItem="HSH-Od-vne" firstAttribute="top" secondItem="HyG-pi-Lmq" secondAttribute="top" id="1gj-3S-De6"/>
                             <constraint firstItem="HyG-pi-Lmq" firstAttribute="bottom" secondItem="HSH-Od-vne" secondAttribute="bottom" id="tFc-js-hXM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HyG-pi-Lmq"/>
@@ -267,6 +267,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zEh-hE-cLm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3874" y="-933"/>
+        </scene>
+        <!--Contents View Controller-->
+        <scene sceneID="rPM-yf-LJ1">
+            <objects>
+                <viewController storyboardIdentifier="VPS2DContentsViewController" id="JXN-aM-Gbq" customClass="VPS2DContentsViewController" customModule="IndoorSDK_Tutorial" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jmv-IZ-oCO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JNh-U3-EAe" customClass="DMVPSView">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="JNh-U3-EAe" firstAttribute="top" secondItem="ekB-R2-wZ1" secondAttribute="top" id="34k-89-Do8"/>
+                            <constraint firstItem="ekB-R2-wZ1" firstAttribute="trailing" secondItem="JNh-U3-EAe" secondAttribute="trailing" id="cBP-Eh-zTA"/>
+                            <constraint firstItem="JNh-U3-EAe" firstAttribute="leading" secondItem="ekB-R2-wZ1" secondAttribute="leading" id="cvi-qP-N5D"/>
+                            <constraint firstItem="ekB-R2-wZ1" firstAttribute="bottom" secondItem="JNh-U3-EAe" secondAttribute="bottom" id="vOi-Va-lmS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ekB-R2-wZ1"/>
+                    </view>
+                    <connections>
+                        <outlet property="vpsView" destination="JNh-U3-EAe" id="279-We-Oof"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nnz-jp-F6x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4659" y="-932"/>
+        </scene>
+        <!--Contents View Controller-->
+        <scene sceneID="KEL-T1-N95">
+            <objects>
+                <viewController storyboardIdentifier="VPS3DContentsViewController" id="8s1-df-GUo" customClass="VPS3DContentsViewController" customModule="IndoorSDK_Tutorial" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0EJ-Tg-kdO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="11z-dk-vRv" customClass="DMVPSView">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="11z-dk-vRv" firstAttribute="leading" secondItem="3wT-FP-eIZ" secondAttribute="leading" id="EbW-El-aDB"/>
+                            <constraint firstItem="3wT-FP-eIZ" firstAttribute="trailing" secondItem="11z-dk-vRv" secondAttribute="trailing" id="Fae-b9-uz1"/>
+                            <constraint firstItem="3wT-FP-eIZ" firstAttribute="bottom" secondItem="11z-dk-vRv" secondAttribute="bottom" id="NPr-UA-d6U"/>
+                            <constraint firstItem="11z-dk-vRv" firstAttribute="top" secondItem="3wT-FP-eIZ" secondAttribute="top" id="XqL-q6-JwK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3wT-FP-eIZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="vpsView" destination="11z-dk-vRv" id="H9O-VM-kjP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gwc-d6-j6C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5381" y="-933"/>
         </scene>
         <!--Map Animation View Controller-->
         <scene sceneID="7xO-Pg-zLO">

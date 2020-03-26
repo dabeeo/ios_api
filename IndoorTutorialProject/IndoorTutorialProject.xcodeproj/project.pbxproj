@@ -15,6 +15,9 @@
 		DC6E9964240EAD38006DE8BB /* MapAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6E9963240EAD38006DE8BB /* MapAnimationViewController.swift */; };
 		DC6E9967240EAD66006DE8BB /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6E9966240EAD66006DE8BB /* PreviewViewController.swift */; };
 		DC6E9969240F93D5006DE8BB /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6E9968240F93D5006DE8BB /* NavigationViewModel.swift */; };
+		DC9DFA54242C58A400942275 /* VPS2DContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DFA53242C58A400942275 /* VPS2DContentsViewController.swift */; };
+		DC9DFA57242C58FA00942275 /* VPS3DContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DFA56242C58FA00942275 /* VPS3DContentsViewController.swift */; };
+		DC9DFA59242C765800942275 /* SCNAssets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = DC9DFA58242C765800942275 /* SCNAssets.scnassets */; };
 		DC9F33C1240CDC0700546CAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9F33C0240CDC0700546CAF /* AppDelegate.swift */; };
 		DC9F33C8240CDC0700546CAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC9F33C6240CDC0700546CAF /* Main.storyboard */; };
 		DC9F33CA240CDC0A00546CAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC9F33C9240CDC0A00546CAF /* Assets.xcassets */; };
@@ -53,6 +56,9 @@
 		DC6E9963240EAD38006DE8BB /* MapAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnimationViewController.swift; sourceTree = "<group>"; };
 		DC6E9966240EAD66006DE8BB /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		DC6E9968240F93D5006DE8BB /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
+		DC9DFA53242C58A400942275 /* VPS2DContentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPS2DContentsViewController.swift; sourceTree = "<group>"; };
+		DC9DFA56242C58FA00942275 /* VPS3DContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPS3DContentsViewController.swift; sourceTree = "<group>"; };
+		DC9DFA58242C765800942275 /* SCNAssets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = SCNAssets.scnassets; sourceTree = "<group>"; };
 		DC9F33BD240CDC0700546CAF /* IndoorSDK_Tutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IndoorSDK_Tutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC9F33C0240CDC0700546CAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC9F33C7240CDC0700546CAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -123,6 +129,22 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
+		DC9DFA52242C58A400942275 /* 2DContents */ = {
+			isa = PBXGroup;
+			children = (
+				DC9DFA53242C58A400942275 /* VPS2DContentsViewController.swift */,
+			);
+			path = 2DContents;
+			sourceTree = "<group>";
+		};
+		DC9DFA55242C58D900942275 /* 3DContents */ = {
+			isa = PBXGroup;
+			children = (
+				DC9DFA56242C58FA00942275 /* VPS3DContentsViewController.swift */,
+			);
+			path = 3DContents;
+			sourceTree = "<group>";
+		};
 		DC9F33B4240CDC0700546CAF = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +174,7 @@
 				DC9F33F0240DE6AB00546CAF /* Authorization.swift */,
 				DC9F33C6240CDC0700546CAF /* Main.storyboard */,
 				DC9F33C9240CDC0A00546CAF /* Assets.xcassets */,
+				DC9DFA58242C765800942275 /* SCNAssets.scnassets */,
 				DC9F33CB240CDC0A00546CAF /* LaunchScreen.storyboard */,
 				DC9F33CE240CDC0A00546CAF /* Info.plist */,
 			);
@@ -199,6 +222,8 @@
 		DCDFF0D02418D6A8002E8D82 /* VPS */ = {
 			isa = PBXGroup;
 			children = (
+				DC9DFA52242C58A400942275 /* 2DContents */,
+				DC9DFA55242C58D900942275 /* 3DContents */,
 				DCDFF0D12418D6A8002E8D82 /* VPSViewController.swift */,
 				DCDFF0D22418D6A8002E8D82 /* README.md */,
 			);
@@ -265,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC9F33CD240CDC0A00546CAF /* LaunchScreen.storyboard in Resources */,
+				DC9DFA59242C765800942275 /* SCNAssets.scnassets in Resources */,
 				DC9F33CA240CDC0A00546CAF /* Assets.xcassets in Resources */,
 				DCDFF0D42418D6A8002E8D82 /* README.md in Resources */,
 				DC9F33C8240CDC0700546CAF /* Main.storyboard in Resources */,
@@ -285,10 +311,12 @@
 				DC9F33D6240CFC5500546CAF /* HomeViewController.swift in Sources */,
 				DC6E9962240EAD1A006DE8BB /* DrawObjectsEventViewController.swift in Sources */,
 				DC6E995C240E4393006DE8BB /* UIComponentViewController.swift in Sources */,
+				DC9DFA57242C58FA00942275 /* VPS3DContentsViewController.swift in Sources */,
 				DC9F33F1240DE6AB00546CAF /* Authorization.swift in Sources */,
 				DC6E995F240EACD1006DE8BB /* PoiEventViewController.swift in Sources */,
 				DC6E9967240EAD66006DE8BB /* PreviewViewController.swift in Sources */,
 				DC6E9964240EAD38006DE8BB /* MapAnimationViewController.swift in Sources */,
+				DC9DFA54242C58A400942275 /* VPS2DContentsViewController.swift in Sources */,
 				DC6E9969240F93D5006DE8BB /* NavigationViewModel.swift in Sources */,
 				DC9F33E5240D03AF00546CAF /* HomeViewModel.swift in Sources */,
 				DC6E9954240E22BD006DE8BB /* MapViewController.swift in Sources */,

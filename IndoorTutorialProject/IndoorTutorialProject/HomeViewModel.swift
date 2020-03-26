@@ -27,9 +27,9 @@ class HomeViewModel: NSObject {
         arrMenu.append(Menu(menuClassName: "DrawObjectsEventViewController", title: "5. Add Event (Custom DrawObjects)"))
         arrMenu.append(Menu(menuClassName: "MapAnimationViewController", title: "6. Map Animation"))
         arrMenu.append(Menu(menuClassName: "PreviewViewController", title: "7. Preview"))
-        arrMenu.append(Menu(menuClassName: "VPSViewController", title: "8. VPS + MapView"))
-        
-        
+        arrMenu.append(Menu(menuClassName: "VPSViewController", title: "8. VPSView"))
+        arrMenu.append(Menu(menuClassName: "VPS2DContentsViewController", title: "9. Add 2D Contents"))
+        arrMenu.append(Menu(menuClassName: "VPS3DContentsViewController", title: "10. Add 3D Contents"))
     }
 }
 
@@ -48,7 +48,7 @@ extension HomeViewModel: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70.0
+        return 65.0
     }
 }
 
