@@ -2,17 +2,23 @@
 
 Dabeeo VPS(Vision Positioning System) 기능을 사용할 수 있는 AR, 지도뷰를 나타낸 뷰 컨트롤러 입니다.  
 
+<img src="sample_vps_positioning.gif" width="236.5" height="500" />
+
+
+
 
 ## 측위
 
 VPSView를 사용하기 위해서는 **수집 프로세스**가 필요합니다.  
 아래의 Sample Code는 **수집 프로세스**를 진행한 후에 정상작동이 되는 점 참고하시기 바랍니다.
 
-* 자세한 사항은 [Dabeeo](https://www.dabeeo.com/ko/contact/)에 문의 부탁드립니다.
+* 자세한 사항은 [Dabeeo](https://www.dabeeo.com/ko/contact/)에 문의 부탁드립니다. 
+
 
 ## ARKit
 Dabeeo VPS는 Apple ARKit Framework를 이용합니다.  
- * 지원버전 및 기타사항은 [ARKit 가이드](https://developer.apple.com/documentation/arkit?language=objc)를 참고해주시기 바랍니다.  
+ * 지원버전 및 기타사항은 [ARKit 가이드](https://developer.apple.com/documentation/arkit?language=objc)를 참고해주시기 바랍니다.    
+
 
 
 ## Sample Code
@@ -45,15 +51,13 @@ Dabeeo VPS는 Apple ARKit Framework를 이용합니다.
         let authorization: DMAuthorization = Authorization.getAuthInfo()
         
         // VPS 및 지도 뷰 옵션 생성
-        let vpsOptions: VPSOptions = VPSOptions.init()
+        let vpsOptions: DMVPSOptions = DMVPSOptions.init()
         let mapOptions: DMMapOptions = DMMapOptions.init()
         
-        vpsOptions.timeInterval = 1.0                           // 위치정보 전달 주기
-        vpsOptions.timeIntervalAngle = 0.1                      // 진행방향(각도)정보 전달
+        vpsOptions.timeInterval = 0.02                          // 위치정보 전달 주기
+        vpsOptions.timeIntervalAngle = 0.02                     // 진행방향(각도)정보 전달
         vpsView?.mapEvent = self                                // Map Delegate 설정
         vpsView?.vpsEvent = self                                // VPS Delegate 설정
-        
-        mapOptions.zoom = 3
         
         // VPS 및 Map의 사용을 위한 인증정보 객체 전달
         vpsView?.setVPSOptions(vpsOptions,
@@ -66,6 +70,9 @@ Dabeeo VPS는 Apple ARKit Framework를 이용합니다.
         
         func ready(_ mapView: DMMapView!, mapInfo: DMMapInfo!) {
             self.mapView = mapView
+            
+            //내 위치 마커 추가
+            setupMyLocationMarker()
             
             //do something
         }
@@ -95,7 +102,15 @@ Dabeeo VPS는 Apple ARKit Framework를 이용합니다.
         func beginNetwork() { }
         
         // 위치 통신 시
-        func network(_ currentRetry: Int32, totalRetry: Int32, currentResult: Bool) { }
+        func network(_ currentRetry: Int32, totalRetry: Int32, currentResult: Bool) { 
+        	if !currentResult {
+                if(currentRetry == totalRetry) {
+                    showAlert(msg: "위치 탐색 실패")
+                }
+            } else {
+                showAlert(msg: "위치 탐색 성공")
+            }
+        }
         
         // 위치 통신 종료
         func endNetwork() { }
@@ -107,7 +122,19 @@ Dabeeo VPS는 Apple ARKit Framework를 이용합니다.
         func hideMotionView() { }
         
         // 현재 위치정보, 현재 디바이스 방향 정보 전달
-        func onLocation(_ location: DMLocation!, direction: CGFloat) { }
+        func onLocation(_ location: DMLocation!, direction: CGFloat) {
+            DispatchQueue.main.async {
+                
+                let loc: DMPoint = DMPoint.init(x: location.x, y: location.y, z: 0)
+                
+                if self.myLocationMarker?.mapView != nil {
+                    //내 위치 마커 > 현 위치로 표시.
+                    self.myLocationMarker?.position = loc
+                    //지도 중심 > 내 위치로 설정.
+                    self.mapView.mapCenter = self.myLocationMarker?.position
+                }
+            }
+        }
         
         // 현재 디바이스의 방향 정보 전달
         func onDirectionAngle(_ angle: CGFloat) { }
