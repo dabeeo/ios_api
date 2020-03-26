@@ -160,7 +160,6 @@ extension VPS3DContentsViewController: VPSEventDelegate {
     
     // VPSView 초기화 완료
     func vpsReady() {
-        self.vpsView?.setInitializePosition(DMPoint(x: 1949, y: 1364, z: 0), direction: 0)
         
         //3D Contents 설정 및 View에 추가
         setup3DContents()

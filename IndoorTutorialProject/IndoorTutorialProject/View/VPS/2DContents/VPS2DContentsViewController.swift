@@ -14,6 +14,9 @@ class VPS2DContentsViewController: UIViewController {
 
     var mapView: DMMapView!
     var myLocationMarker: DMMarker!
+    var currentFloor: DMFloorInfo? = nil
+    
+    let arr2dContents: NSMutableArray? = NSMutableArray()
     
     @IBOutlet var vpsView: DMVPSView!
     
@@ -63,13 +66,72 @@ class VPS2DContentsViewController: UIViewController {
         myLocationMarker?.isAutoRotate = true
         myLocationMarker?.add(to: self.mapView)
     }
+    
+    func setup2DContents() {
+        
+        let arrContentLocations: NSMutableArray = NSMutableArray()
+        
+        let c1Loc: DMLocation = DMLocation.init(x: 3122, y: 1475, floorLevel: self.currentFloor!.level)
+        let c2Loc: DMLocation = DMLocation.init(x: 3061, y: 1229, floorLevel: self.currentFloor!.level)
+        
+        DispatchQueue.main.async {
+            let c1: VPS2DContent = VPS2DContent.init()
+            c1.contentId = "content01"                                  //Content ID
+            
+            let view1: VPS2DContentView = VPS2DContentView.instanceFromNib()
+            view1.ivImage.image = UIImage.init(named: "logo")!
+            view1.lbText.text = "1번입니다"
+            c1.contentView = view1                                      //Content 뷰
+            
+            c1.location = c1Loc                                         //Content 위치
+            c1.scale = SCNVector3Make(0.1, 0.1, 0.1)                    //Content 노출 비율
+            
+            let c2: VPS2DContent = VPS2DContent.init()
+            c2.contentId = "content02"
+            
+            let view2: VPS2DContentView = VPS2DContentView.instanceFromNib()
+            view2.ivImage.image = UIImage.init(named: "logo")!
+            view2.lbText.text = "2번입니다"
+            c2.contentView = view2
+            
+            c2.location = c2Loc
+            
+            self.arr2dContents!.add(c1)
+            self.arr2dContents!.add(c2)
+            
+            self.vpsView?.set2DContents(self.arr2dContents!)
+        }
+        
+        //Content 위치 표시 - Test용
+        arrContentLocations.add(c1Loc)
+        arrContentLocations.add(c2Loc)
+
+        showContentsLocation(arrLocations: arrContentLocations)
+    }
+    
+    func showContentsLocation (arrLocations : NSMutableArray) {
+        
+        for i in 0..<arrLocations.count {
+            let location: DMLocation = arrLocations.object(at: i) as! DMLocation
+            let point: DMPoint = DMPoint.init(x: location.x, y: location.y, z: 0.0)
+            
+            let circle: DMCircle = DMCircle(center: point)
+            circle.radius = 10
+            circle.fillColor = "#00ff00"
+            circle.add(to: self.mapView)
+        }
+    }
 }
 
 @available(iOS 11.0, *)
 extension VPS2DContentsViewController: DMMapEventDelegate {
     
     func ready(_ mapView: DMMapView!, mapInfo: DMMapInfo!) {
+        
         self.mapView = mapView
+        self.currentFloor = mapView.floorInfo()
+        
+        setupMyLocationMarker()
         
         //do something
     }
@@ -84,7 +146,9 @@ extension VPS2DContentsViewController: VPSEventDelegate {
     
     // VPSView 초기화 완료
     func vpsReady() {
-        //do something
+        
+        //2D Contents 설정 및 View에 추가
+        setup2DContents()
     }
     
     // VPSView 초기화 실패

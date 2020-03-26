@@ -18,6 +18,8 @@
 		DC9DFA54242C58A400942275 /* VPS2DContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DFA53242C58A400942275 /* VPS2DContentsViewController.swift */; };
 		DC9DFA57242C58FA00942275 /* VPS3DContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DFA56242C58FA00942275 /* VPS3DContentsViewController.swift */; };
 		DC9DFA59242C765800942275 /* SCNAssets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = DC9DFA58242C765800942275 /* SCNAssets.scnassets */; };
+		DC9DFA5C242C929600942275 /* VPS2DContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DFA5A242C929600942275 /* VPS2DContentView.swift */; };
+		DC9DFA5D242C929600942275 /* VPS2DContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC9DFA5B242C929600942275 /* VPS2DContentView.xib */; };
 		DC9F33C1240CDC0700546CAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9F33C0240CDC0700546CAF /* AppDelegate.swift */; };
 		DC9F33C8240CDC0700546CAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC9F33C6240CDC0700546CAF /* Main.storyboard */; };
 		DC9F33CA240CDC0A00546CAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC9F33C9240CDC0A00546CAF /* Assets.xcassets */; };
@@ -59,6 +61,8 @@
 		DC9DFA53242C58A400942275 /* VPS2DContentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPS2DContentsViewController.swift; sourceTree = "<group>"; };
 		DC9DFA56242C58FA00942275 /* VPS3DContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPS3DContentsViewController.swift; sourceTree = "<group>"; };
 		DC9DFA58242C765800942275 /* SCNAssets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = SCNAssets.scnassets; sourceTree = "<group>"; };
+		DC9DFA5A242C929600942275 /* VPS2DContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPS2DContentView.swift; sourceTree = "<group>"; };
+		DC9DFA5B242C929600942275 /* VPS2DContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VPS2DContentView.xib; sourceTree = "<group>"; };
 		DC9F33BD240CDC0700546CAF /* IndoorSDK_Tutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IndoorSDK_Tutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC9F33C0240CDC0700546CAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC9F33C7240CDC0700546CAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				DC9DFA53242C58A400942275 /* VPS2DContentsViewController.swift */,
+				DC9DFA5A242C929600942275 /* VPS2DContentView.swift */,
+				DC9DFA5B242C929600942275 /* VPS2DContentView.xib */,
 			);
 			path = 2DContents;
 			sourceTree = "<group>";
@@ -289,6 +295,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC9DFA5D242C929600942275 /* VPS2DContentView.xib in Resources */,
 				DC9F33CD240CDC0A00546CAF /* LaunchScreen.storyboard in Resources */,
 				DC9DFA59242C765800942275 /* SCNAssets.scnassets in Resources */,
 				DC9F33CA240CDC0A00546CAF /* Assets.xcassets in Resources */,
@@ -304,6 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC9DFA5C242C929600942275 /* VPS2DContentView.swift in Sources */,
 				DC9F33E2240D011100546CAF /* Menu.swift in Sources */,
 				DC9F33C1240CDC0700546CAF /* AppDelegate.swift in Sources */,
 				DC9F33EA240D2FC500546CAF /* MenuTableViewCell.swift in Sources */,
