@@ -75,23 +75,19 @@ class VPS3DContentsViewController: UIViewController {
         let robotLoc: DMLocation = DMLocation.init(x: 3061, y: 1229, floorLevel: self.currentFloor!.level)
         
         let biplane: VPS3DContent = VPS3DContent()
-        biplane.contentId = "biplane"                                   //Content ID
-        biplane.rootName = "toy_biplane"                                //Content 모델 파일 RootName
-        biplane.resourceURL = "SCNAssets.scnassets/toy_biplane"         //Content 모델 파일 경로
-        biplane.fileFormat = "usdz"                                     //Content 모델 파일 확장자
-        biplane.location = biplaneLoc                                   //Content 위치
-        biplane.z = -50.0                                               //Content 높이
-        biplane.scale = SCNVector3Make(0.01, 0.01, 0.01)                //Content 노출 배율
-        biplane.visibleDistance = 10                                     //Content 노출 거리
-        biplane.directionType = DIRECTION_FIXING                        //Content 방향 타입
-        biplane.direction = 90                                          //Content 방향 각도
-        biplane.arContentEvent = self                                   //Content 이벤트 전달 받을 Delgate
+        biplane.setResourceURL("SCNAssets.scnassets/toy_biplane", fileFormat: "usdz") // Content 모델파일 경로 및 확장자
+        biplane.contentId = "biplane"                                   // Content ID
+        biplane.location = biplaneLoc                                   // Content 위치
+        biplane.z = -50.0                                               // Content 높이
+        biplane.scale = SCNVector3Make(0.01, 0.01, 0.01)                // Content 노출 배율
+        biplane.visibleDistance = 10                                    // Content 노출 거리
+        biplane.directionType = DIRECTION_FIXING                        // Content 방향 타입
+        biplane.direction = 90                                          // Content 방향 각도
+        biplane.arContentEvent = self                                   // Content 이벤트 전달 받을 Delgate
         
-        let robot: VPS3DContent = VPS3DContent()
+        // 초기화시 Content 경로 지정
+        let robot: VPS3DContent = VPS3DContent(url: "SCNAssets.scnassets/toy_robot_vintage", fileFormat: "usdz")
         robot.contentId = "robot"
-        robot.rootName = "toy_robot_vintage"
-        robot.resourceURL = "SCNAssets.scnassets/toy_robot_vintage"
-        robot.fileFormat = "usdz"
         robot.location = robotLoc
         robot.z = 20.0
         robot.scale = SCNVector3Make(0.02, 0.02, 0.02)
@@ -103,7 +99,7 @@ class VPS3DContentsViewController: UIViewController {
         
         //AR Viewdp 표시할 3D Contents 설정
         self.vpsView.set3DContents(arr3dContents!)
-        
+
         //Content 위치 표시 - Test용
         arrContentLocations.add(biplaneLoc)
         arrContentLocations.add(robotLoc)
