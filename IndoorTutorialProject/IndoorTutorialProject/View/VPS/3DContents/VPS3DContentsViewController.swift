@@ -12,14 +12,21 @@ import DabeeoMaps_SDK
 
 class VPS3DContentsViewController: UIViewController {
     
+    let sceneAssets: String = "SCNAssets.scnassets"
+    
     var mapView: DMMapView!
     var myLocationMarker: DMMarker!
     var currentFloor: DMFloorInfo? = nil
     
-    let arr3dContents: NSMutableArray? = NSMutableArray()
+    var arContents: [String: VPS3DContent] = [:]
+    var selectVPSContentsID: String = ""
+    
+    var currentLocation: DMLocation? = nil
+    var currentDirection: CGFloat = 0
     
     @IBOutlet var vpsView: DMVPSView!
     
+    // MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -70,12 +77,13 @@ class VPS3DContentsViewController: UIViewController {
     func setup3DContents() {
         
         let arrContentLocations: NSMutableArray = NSMutableArray()
-        
+        let arr3dContents: NSMutableArray = NSMutableArray()
+
         let biplaneLoc: DMLocation = DMLocation.init(x: 3122, y: 1475, floorLevel: self.currentFloor!.level)
         let robotLoc: DMLocation = DMLocation.init(x: 3061, y: 1229, floorLevel: self.currentFloor!.level)
         
         let biplane: VPS3DContent = VPS3DContent()
-        biplane.setResourceURL("SCNAssets.scnassets/toy_biplane", fileFormat: "usdz") // Content 모델파일 경로 및 확장자
+        biplane.setResourceURL("\(sceneAssets)/toy_biplane", fileFormat: "usdz") // Content 모델파일 경로 및 확장자
         biplane.contentId = "biplane"                                   // Content ID
         biplane.location = biplaneLoc                                   // Content 위치
         biplane.z = -50.0                                               // Content 높이
@@ -86,7 +94,7 @@ class VPS3DContentsViewController: UIViewController {
         biplane.arContentEvent = self                                   // Content 이벤트 전달 받을 Delgate
         
         // 초기화시 Content 경로 지정
-        let robot: VPS3DContent = VPS3DContent(url: "SCNAssets.scnassets/toy_robot_vintage", fileFormat: "usdz")
+        let robot: VPS3DContent = VPS3DContent(url: "\(sceneAssets)/toy_robot_vintage", fileFormat: "usdz")
         robot.contentId = "robot"
         robot.location = robotLoc
         robot.z = 20.0
@@ -94,11 +102,14 @@ class VPS3DContentsViewController: UIViewController {
         robot.visibleDistance = 10
         robot.arContentEvent = self
         
-        arr3dContents?.add(biplane)
-        arr3dContents?.add(robot)
+        arContents[biplane.contentId] = biplane
+        arContents[robot.contentId] = robot
+        
+        arr3dContents.add(biplane)
+        arr3dContents.add(robot)
         
         //AR Viewdp 표시할 3D Contents 설정
-        self.vpsView.set3DContents(arr3dContents!)
+        self.vpsView.set3DContents(arr3dContents)
 
         //Content 위치 표시 - Test용
         arrContentLocations.add(biplaneLoc)
@@ -107,6 +118,36 @@ class VPS3DContentsViewController: UIViewController {
         showContentsLocation(arrLocations: arrContentLocations)
     }
     
+    func add3dContents(_ location: DMLocation!) {
+        let biplane: VPS3DContent = VPS3DContent(url: "\(sceneAssets)/toy_biplane", fileFormat: "usdz")
+        biplane.contentId = "biplane\(arContents.count)"            // Content ID
+        biplane.location = location                                     // Content 위치
+        biplane.scale = SCNVector3Make(0.01, 0.01, 0.01)                // Content 노출 배율
+        biplane.visibleDistance = 10                                    // Content 노출 거리
+        biplane.direction = 90                                          // Content 방향 각도
+        biplane.arContentEvent = self                                   // Content 이벤트 전달 받을 Delgate
+        
+        arContents[biplane.contentId] = biplane
+        vpsView.add3DContent(biplane)
+    }
+
+    
+    /// location에서 dist만큼 떨어진 위치의 지도좌표 반환
+    func startARPos(_ dist: CGFloat, location: DMLocation, degree: CGFloat) -> DMLocation {
+        let reverceDegree = Float(abs(degree - 360))
+        let radian = GLKMathDegreesToRadians(reverceDegree)
+        
+        let x: CGFloat = location.x + (dist * CGFloat(cosf(radian)))
+        let y: CGFloat = location.y + (dist * CGFloat(sinf(radian)))
+
+        let loc: DMLocation = DMLocation(x: x, y: y, floorLevel: location.floorLevel)
+        
+        print(loc)
+        
+        return loc
+    }
+
+
     func showContentsLocation (arrLocations : NSMutableArray) {
         
         for i in 0..<arrLocations.count {
@@ -133,6 +174,58 @@ class VPS3DContentsViewController: UIViewController {
     }
 }
 
+//MARK: IBAction
+extension VPS3DContentsViewController {
+    
+    // 현 위치 기준 100px 앞의 위치에 컨텐츠 추가
+    @IBAction func actionAddContents() {
+        guard vpsView.trackingState == VPS_TRACKING else {
+            return
+        }
+        
+        let loc: DMLocation = startARPos(100,
+                                         location: currentLocation!,
+                                         degree: currentDirection)
+        add3dContents(loc);
+    }
+    
+    // 선택한 컨텐츠 삭제
+    @IBAction func actionRemoveContents() {
+        guard let c = arContents[selectVPSContentsID] else {
+            return
+        }
+        
+        arContents.removeValue(forKey: c.contentId)
+        vpsView.remove3DContent(c.contentId)
+        
+    }
+    
+    // 선택한 컨텐츠 이동
+    @IBAction func actionMoveContents() {
+        guard let c = arContents[selectVPSContentsID] else {
+            return
+        }
+        
+        let newPoint: DMPoint = DMPoint(x: c.location.x + 100,
+                                        y: c.location.y,
+                                        z: c.z)
+        
+        c.move(newPoint, z: c.z, duration: 1)
+    }
+    
+    // 선택한 컨텐츠가 갖고있는 애니메이션 실행 (1회)
+    @IBAction func actionPlayAnimation() {
+        guard let c = arContents[selectVPSContentsID],
+            c.animationKeys.count != 0 else {
+            return
+        }
+        
+        c.loadAnimation(c.animationKeys.firstObject as! String)
+    }
+}
+
+
+// MARK: -
 @available(iOS 11.0, *)
 extension VPS3DContentsViewController: DMMapEventDelegate {
     
@@ -193,6 +286,9 @@ extension VPS3DContentsViewController: VPSEventDelegate {
     // 현재 위치정보, 현재 디바이스 방향 정보 전달
     func onLocation(_ location: DMLocation!, direction: CGFloat) {
         
+        currentLocation = location
+        currentDirection = direction
+        
         DispatchQueue.main.async {
             
             let loc: DMPoint = DMPoint.init(x: location.x, y: location.y, z: 0)
@@ -220,6 +316,7 @@ extension VPS3DContentsViewController: VPSARContentEventDelegate {
     //Content Click 시, 발생
     func clickContent(_ contentId: String!) {
         self.showAlert(msg: contentId + " Click!!!!")
+        selectVPSContentsID = contentId
     }
     
     //Content 노출 시, 발생

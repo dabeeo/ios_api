@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ojd-A2-2qG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ojd-A2-2qG">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -308,7 +308,58 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="11z-dk-vRv" customClass="DMVPSView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OzZ-wB-o3S">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="3P6-W1-RMY">
+                                                <rect key="frame" x="10" y="0.0" width="302" height="30"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uMS-dv-Fj4">
+                                                        <rect key="frame" x="0.0" y="0.0" width="65" height="30"/>
+                                                        <state key="normal" title="컨텐츠추가"/>
+                                                        <connections>
+                                                            <action selector="actionAddContents" destination="8s1-df-GUo" eventType="touchUpInside" id="h7E-gp-MGZ"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UzF-1g-iVL">
+                                                        <rect key="frame" x="79" y="0.0" width="65" height="30"/>
+                                                        <state key="normal" title="컨텐츠이동"/>
+                                                        <connections>
+                                                            <action selector="actionMoveContents" destination="8s1-df-GUo" eventType="touchUpInside" id="lvI-XA-s4d"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="taL-JD-JUZ">
+                                                        <rect key="frame" x="158" y="0.0" width="65" height="30"/>
+                                                        <state key="normal" title="컨텐츠삭제"/>
+                                                        <connections>
+                                                            <action selector="actionRemoveContents" destination="8s1-df-GUo" eventType="touchUpInside" id="cuH-eN-ni5"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tug-lJ-67B">
+                                                        <rect key="frame" x="237" y="0.0" width="65" height="30"/>
+                                                        <state key="normal" title="애니메이션"/>
+                                                        <connections>
+                                                            <action selector="actionPlayAnimation" destination="8s1-df-GUo" eventType="touchUpInside" id="eOM-ms-oc1"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="MOC-6v-p8J"/>
+                                            <constraint firstItem="3P6-W1-RMY" firstAttribute="top" secondItem="OzZ-wB-o3S" secondAttribute="top" id="ihv-v4-EUJ"/>
+                                            <constraint firstItem="3P6-W1-RMY" firstAttribute="leading" secondItem="OzZ-wB-o3S" secondAttribute="leading" constant="10" id="wKm-Fe-l1b"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="OzZ-wB-o3S" secondAttribute="trailing" id="ZYC-h4-EJ9"/>
+                                    <constraint firstItem="OzZ-wB-o3S" firstAttribute="top" secondItem="11z-dk-vRv" secondAttribute="top" id="ext-br-T6k"/>
+                                    <constraint firstItem="OzZ-wB-o3S" firstAttribute="leading" secondItem="11z-dk-vRv" secondAttribute="leading" id="zgU-2B-Es0"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -326,7 +377,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gwc-d6-j6C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5381" y="-933"/>
+            <point key="canvasLocation" x="5379.7101449275369" y="-933.48214285714278"/>
         </scene>
         <!--Map Animation View Controller-->
         <scene sceneID="7xO-Pg-zLO">
