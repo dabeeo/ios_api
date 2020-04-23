@@ -73,7 +73,7 @@
 
 
 
-## Start
+## 시작하기
 
 * Import SDK
 
@@ -81,3 +81,12 @@
    import DabeeoMaps_SDK
   ```
 
+
+* 개발 로그 확인
+
+  * SDK 내 프로세스에 대한 개발용 및 에러 로그 확인을 위하여, DMLogManager를 활성화 합니다. 
+
+  ```swift
+        DMLogManager.sharedInstance().showLog(true)
+        DMLogManager.sharedInstance().logLevel = .level_Error
+  ```
