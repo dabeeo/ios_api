@@ -49,6 +49,7 @@ class VPSViewController: UIViewController {
                                authorization: authorization)
     }
     
+    
     func setupMyLocationMarker() {
         let markerPoint = DMPoint(x: 0, y: 0, z: 0.0)
         let uiimg = UIImage.init(named: "img_mylocation")
