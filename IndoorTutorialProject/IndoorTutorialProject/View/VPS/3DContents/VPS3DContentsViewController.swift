@@ -313,6 +313,7 @@ extension VPS3DContentsViewController: VPSEventDelegate {
 @available(iOS 11.0, *)
 extension VPS3DContentsViewController: VPSARContentEventDelegate {
     
+    
     //Content Click 시, 발생
     func clickContent(_ contentId: String!) {
         self.showAlert(msg: contentId + " Click!!!!")
@@ -327,5 +328,13 @@ extension VPS3DContentsViewController: VPSARContentEventDelegate {
     //Content Render 실패 시, 발생
     func errorContent(_ contentId: String!, message: String!) {
         print("errorContent - contentId : ", contentId, "message : ", message)
+    }
+    
+    func willAddContent(_ node: SCNNode!) {
+        print("didADD : ",node)
+    }
+    
+    func willRemoveContent(_ node: SCNNode!) {
+        print("didREMOVE : ",node)
     }
 }

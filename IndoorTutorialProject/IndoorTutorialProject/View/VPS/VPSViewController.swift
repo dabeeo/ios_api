@@ -38,10 +38,11 @@ class VPSViewController: UIViewController {
         
         vpsOptions.timeInterval = 0.02                           // 위치정보 전달 주기
         vpsOptions.timeIntervalAngle = 0.02                      // 진행방향(각도)정보 전달 주기
-
+        vpsOptions.setMapViewHandle("#000000", alpha: 0.6, drawable: UIImage.init(named: "img_mylocation")!)
+        //VPS 사용시 Mapview 드래그 핸들 사용 선언
+        
         vpsView?.mapEvent = self                                // Map Delegate 설정
         vpsView?.vpsEvent = self                                // VPS Delegate 설정
-        
         // VPS 및 Map의 사용을 위한 인증정보 객체 전달
         vpsView?.setVPSOptions(vpsOptions,
                                mapOptions: mapOptions,

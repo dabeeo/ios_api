@@ -23,7 +23,7 @@
 
 ## API Document
 
-* 상세 API는  [iOS_국문_v1.1.4.pdf](/iOS_국문_v1.1.4.pdf) 파일을 확인하세요.
+* 상세 API는  [iOS_국문_v1.1.7.pdf](/iOS_국문_v1.1.7.pdf) 파일을 확인하세요.
 
 
 
