@@ -6,7 +6,6 @@
 
 본 저장소는 다비오맵스 SDK를 보다 쉽게 적용하기 위한 튜토리얼 프로젝트를 제공합니다.
 
-
 ## Index
 
 1. [Init MapView](/IndoorTutorialProject/IndoorTutorialProject/View/Basic)
@@ -23,7 +22,7 @@
 
 ## API Document
 
-* 상세 API는  [iOS_국문_v1.1.7.pdf](/iOS_국문_v1.1.7.pdf) 파일을 확인하세요.
+* 상세 API는  [iOS_국문-v1.1.7.pdf](/iOS_국문-v1.1.7.pdf) 파일을 확인하세요.
 
 
 
