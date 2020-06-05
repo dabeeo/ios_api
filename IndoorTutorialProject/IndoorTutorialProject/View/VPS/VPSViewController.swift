@@ -38,7 +38,8 @@ class VPSViewController: UIViewController {
         
         vpsOptions.timeInterval = 0.02                           // 위치정보 전달 주기
         vpsOptions.timeIntervalAngle = 0.02                      // 진행방향(각도)정보 전달 주기
-        vpsOptions.setMapViewHandle("#000000", alpha: 0.6, drawable: UIImage.init(named: "img_mylocation")!)
+        vpsOptions.mapViewHandleEnable(true)                     // VPS에서 MamHandle 사용 여부
+        vpsOptions.setMapViewHandle("#000000", alpha: 0.6)
         //VPS 사용시 Mapview 드래그 핸들 사용 선언
         
         vpsView?.mapEvent = self                                // Map Delegate 설정
@@ -100,8 +101,16 @@ extension VPSViewController: DMMapEventDelegate {
     func error(_ code: String!, message: String!) {
         //handle error
     }
+    
+    @IBAction func MapMove() {
+        vpsView.moveBar(BarState_TOP) //MapHandle 최상단까지 코드로 셋팅
+        vpsView.moveBar(BarState_MIDDLE) //MapHandle derault
+        vpsView.moveBar(BarState_BOTTOM) //MapHandle 최하단까지 코드로 셋팅
+        
+    }
 }
 
+ 
 @available(iOS 11.0, *)
 extension VPSViewController: VPSEventDelegate {
     
