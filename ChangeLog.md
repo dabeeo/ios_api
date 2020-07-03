@@ -1,6 +1,18 @@
 # SDK Change Log
 
 
+## v1.1.9
+
+### 새로운 기능
+
+- MapHandle Drag Hidden 기능 추가 (언제든지 MapHandle 켜고, 끄기 가능 )
+
+### 버그 수정
+
+- Navigation Event 중 directions 호출 추기 변경 
+
+---
+
 ## v1.1.8
 
 ### 새로운 기능

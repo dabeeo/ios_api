@@ -22,7 +22,7 @@
 
 ## API Document
 
-* 상세 API는  [iOS_국문_v1.1.8.pdf](https://github.com/dabeeo/ios_api/blob/master/iOS_국문_v1.1.8.pdf) 파일을 확인하세요.
+* 상세 API는  [iOS_국문_v1.1.9.pdf](https://github.com/dabeeo/ios_api/blob/master/iOS_국문_v1.1.9.pdf) 파일을 확인하세요.
 
 
 
