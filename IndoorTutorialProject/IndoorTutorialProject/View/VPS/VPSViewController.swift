@@ -45,6 +45,7 @@ class VPSViewController: UIViewController {
         vpsView?.mapEvent = self                                // Map Delegate 설정
         vpsView?.vpsEvent = self                                // VPS Delegate 설정
         // VPS 및 Map의 사용을 위한 인증정보 객체 전달
+        vpsView?.mapHandleEnable(true)
         vpsView?.setVPSOptions(vpsOptions,
                                mapOptions: mapOptions,
                                authorization: authorization)
